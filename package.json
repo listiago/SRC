@@ -1,0 +1,38 @@
+{
+  "name": "plano-camareiras",
+  "version": "1.0.0",
+  "description": "Distribuicoes de asaidas e arrumacoes",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron ."
+  },
+  "author": "Tiago Lins",
+  "license": "UNLICENSED",
+  "devDependencies": {
+    "electron": "^26.1.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/listiago/plano-camarerias-nativo.git"
+  },
+  "build": {
+    "appId": "linstiago33.app",
+    "productName": "Plano-Camareiras",
+    "directories": {
+      "output": "dist"
+    },
+    "win": {
+      "target": "nsis",
+      "icon": "housekeeper.png"
+    },
+    "mac": {
+      "target": "dmg",
+      "icon": "housekeeper.png"
+    },
+    "linux": {
+      "target": "AppImage",
+      "icon": "housekeeper.png"
+    },
+    "electronVersion": "26.1.0"
+  }
+}
