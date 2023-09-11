@@ -1,2 +1,2 @@
-# SRC
- Aplicativo Nativo com Electron. Plano das camareiras de um Hotel
+# PLANO DE DISTRIBUIÇÃO
+ Aplicativo para desktop feito com javaScript. Para ios,windows e linux
