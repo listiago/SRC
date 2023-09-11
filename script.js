@@ -18,36 +18,45 @@ class Camareira {
 
 
 
-  // Objeto para armazenar os quartos e andares atendidos por cada camareira
   const atendimentosCamareiras = {
-    'Rosemeire': {
-      andares: ['Térreo', '1º Andar', '7º Andar'],
-      quartos: ['01', '02', '03', '04', '05', '06', '101', '102', '103', '104', '105', '106', '107', '108', '109', '110', '111', '112', '701', '702'],
-    },
-    'Eliana': {
-      andares: ['2º Andar', '3º Andar', '4º Andar', '9º Andar'],
-      quartos: ['201', '202', '203', '204', '205', '301', '302', '303', '304', '305', '401', '402', '403', '404', '405', '901', '902'],
-    },
-    'Cibely': {
-      andares: ['5º Andar', '6º Andar', '8º Andar'],
-      quartos: ['501', '502', '503', '504', '505', '601', '602', '603', '604', '605', '801', '802'],
-    },
-  };
-
-
-
-  // Objeto para armazenar os quartos do hotel
-  const quartosDoHotel = {};
-
-  // Inicializando os quartos do hotel
-  for (let andar = 1; andar <= 9; andar++) {
-    for (let numero = 1; numero <= 12; numero++) {
-      let quartoNumero = numero < 10 ? `0${numero}` : `${numero}`;
-      let andarNumero = `${andar}`;
-      let quartoId = andar === 1 ? quartoNumero : `${andarNumero}${quartoNumero}`;
-      quartosDoHotel[quartoId] = { andar: andarNumero, numero: quartoNumero };
+  'Rosemeire': {
+    andares: {
+      'Térreo': ['01', '02', '03', '04', '05', '06'],
+      '1º Andar': ['101', '102', '103', '104', '105', '106', '107', '108', '109', '110', '111', '112'],
+      '7º Andar': ['701', '702']
+    }
+  },
+  'Eliana': {
+    andares: {
+      '2º Andar': ['201', '202', '203', '204', '205'],
+      '3º Andar': ['301', '302', '303', '304', '305'],
+      '4º Andar': ['401', '402', '403', '404', '405'],
+      '9º Andar': ['901', '902']
+    }
+  },
+  'Cibely': {
+    andares: {
+      '5º Andar': ['501', '502', '503', '504', '505'],
+      '6º Andar': ['601', '602', '603', '604', '605'],
+      '8º Andar': ['801', '802']
     }
   }
+};
+
+const quartosDoHotel = {};
+
+// Inicializando os quartos do hotel
+for (const camareira in atendimentosCamareiras) {
+  const andaresAtendidos = atendimentosCamareiras[camareira].andares;
+  for (const andar in andaresAtendidos) {
+    const quartos = andaresAtendidos[andar];
+    for (const quartoNumero of quartos) {
+      const quartoId = `${andar}-${quartoNumero}`;
+      quartosDoHotel[quartoId] = { andar: andar, numero: quartoNumero };
+    }
+  }
+}
+
 
 
 

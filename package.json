@@ -7,13 +7,13 @@
     "start": "electron ."
   },
   "author": "Tiago Lins",
-  "license": "UNLICENSED",
+  "license": "MIT License",
   "devDependencies": {
     "electron": "^26.1.0"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/listiago/plano-camarerias-nativo.git"
+    "url": "https://github.com/listiago/SRC.git"
   },
   "build": {
     "appId": "linstiago33.app",
