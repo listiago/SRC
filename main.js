@@ -1,16 +1,16 @@
 const { app, BrowserWindow } = require('electron');
 
+let win; // Alteração aqui: de const para let
+
 function createWindow() {
-  const win = new BrowserWindow({
+  win = new BrowserWindow({
     width: 800,
     height: 600,
-  autoHideMenuBar: true,
-  webPreferences: {
-  nodeIntegration: true,
-  hardwareAcceleration: false,
-  
-}
-
+    autoHideMenuBar: true,
+    webPreferences: {
+      nodeIntegration: true,
+      hardwareAcceleration: false,
+    },
   });
 
   win.loadFile('index.html');
@@ -19,8 +19,6 @@ function createWindow() {
     win = null;
   });
 }
-
-
 
 app.on('ready', createWindow);
 
@@ -35,4 +33,3 @@ app.on('activate', () => {
     createWindow();
   }
 });
-
