@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Camareiras</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="menu.css">
+  <link rel="stylesheet" type="text/css" href="print.css" media="print">
+
+</head>
+
+<body>
+
+  <header>
+    <h1>Plano das Camareiras</h1>
+  </header>
+
+  <div id="myMenu" class="menu-container">
+    <a href="javascript:void(0)" class="close-btn" onclick="closeMenu()">&times;</a>
+    <a href="TABELA.html">Camareiras</a>
+    <a href="#"></a>
+    <a href="#"></a>
+    <!-- Adicione mais itens conforme necessário -->
+  </div>
+
+  <div class="menu-btn" onclick="openMenu()">&#9776;</div>
+
+  <form id="formularioCamareiras">
+    <!-- O conteúdo do formulário será gerado dinamicamente aqui -->
+  </form>
+  <div id="totalSaidas"></div>
+  <div id="totalArrumacoes"></div>
+  <div id="resultados"></div>
+  <div id="resultadosEqualizados"></div>
+  <div id="diferencasEqualizadas"></div>
+
+  <button onclick="abrirPaginaResultados()" id="abrirResultadosButton">Imprimir Resultados</button>
+
+  <script>
+    function openMenu() {
+      document.getElementById("myMenu").style.width = "250px";
+    }
+  
+    function closeMenu() {
+      document.getElementById("myMenu").style.width = "0";
+    }
+  </script>
+  
+  <script src="IMPRIMIR.js"></script>
+  <script src="CAMAREIRA.js"></script>
+  <script src="FORM.js"></script>
+ 
+  <script src="resultados.js"></script>
+</body>
+
+</html>

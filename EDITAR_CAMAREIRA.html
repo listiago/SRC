@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Editar Camareira</title>
+  <link rel="stylesheet" href="editarCamar.css">
+
+</head>
+<body>
+  <h1>Editar Camareira</h1>
+
+  <form id="editarCamareiraForm">
+    <label for="nome">Nome:</label>
+    <input type="text" id="nome" name="nome" required>
+
+    <label for="funcao">Função:</label>
+    <select id="funcao" name="funcao" required>
+      <option value="Fixa">Fixa</option>
+      <option value="Folguista">Folguista</option>
+      <option value="Ferista">Ferista</option>
+    </select>
+
+
+
+    <label for="ala_atendida">Ala Atendida:</label>
+    <select id="ala_atendida" name="ala_atendida" required>
+      <option value="Ala 7">Ala 7</option>
+      <option value="Ala 8">Ala 8</option>
+      <option value="Ala 9">Ala 9</option>
+      <option value="Dinâmica">Dinâmica</option>
+    </select>
+
+    <button type="submit">Salvar Edição</button>
+  </form>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const { ipcRenderer } = require('electron');
+      let camareiraId; // Adicionado para armazenar o ID da camareira
+
+      // Recebe o ID da camareira enviado pela janela principal
+      ipcRenderer.on('camareira-id', (event, id) => {
+        camareiraId = id;
+        // pode usar camareiraId para buscar os detalhes da camareira do banco de dados
+        // e preencher o formulário com esses detalhes, se necessário.
+        ipcRenderer.send('buscar-detalhes-camareira', camareiraId);
+      });
+
+      ipcRenderer.on('detalhes-camareira', (event, detalhes) => {
+        // Preenche o formulário com os detalhes da camareira
+        document.getElementById('nome').value = detalhes.nome;
+        document.getElementById('funcao').value = detalhes.funcao;
+        document.getElementById('ala_atendida').value = detalhes.ala_atendida;
+      });
+
+      // Manipula o envio do formulário de edição
+      const editarCamareiraForm = document.getElementById('editarCamareiraForm');
+      editarCamareiraForm.addEventListener('submit', (event) => {
+        event.preventDefault();
+
+        // Coleta dados do formulário
+        const nome = document.getElementById('nome').value;
+        const funcao = document.getElementById('funcao').value;
+        const ala_atendida = document.getElementById('ala_atendida').value;
+
+        // envia os dados para o processo principal para salvar no banco de dados
+        ipcRenderer.send('salvar-edicao-camareira', { camareiraId, nome, funcao, ala_atendida });
+        ipcRenderer.send('recarregar-pagina-camareiras');
+        // Fechar a janela de edição após salvar
+        window.close();
+      });
+    });
+  </script>
+</body>
+</html>

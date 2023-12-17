@@ -1,0 +1,28 @@
+    print {
+    /* Estilos para impressão aqui */
+    body {
+      font-size: 12pt;
+    }
+  
+    table {
+      border-collapse: collapse;
+      width: 100%;
+      margin-bottom: 10px;
+    }
+  
+    th, td {
+      border: 1px solid #ddd;
+      padding: 8px;
+      text-align: left;
+    }
+  
+    body {
+        font-size: 14pt;
+        /* Adicione mais estilos conforme necessário */
+      }
+      
+      .na-impressao {
+        display: none;
+      }
+  }
+  

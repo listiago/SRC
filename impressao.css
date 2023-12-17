@@ -1,0 +1,60 @@
+/* Reset de estilos para a impressão */
+body,
+h1,
+p {
+  margin: 0;
+  padding: 0;
+}
+
+/* Estilo para o cabeçalho */
+h1 {
+  font-size: 1.5em;
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+/* Estilo para o parágrafo de data */
+p {
+  font-size: 0.8em;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+/* Estilo para o rodapé */
+footer {
+  font-size: 0.8em;
+  text-align: center;
+  margin-top: 20px;
+}
+
+/* Estilo para a tabela de resultados */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+}
+
+table, th, td {
+  border: 1px solid #ddd;
+}
+
+th, td {
+  padding: 8px;
+  text-align: left;
+}
+
+/* Estilo para o botão de impressão */
+#printButton {
+  display: none; /* Ocultar o botão de impressão na impressão */
+}
+
+/* Estilo para a página de impressão */
+@media print {
+  body {
+    padding: 10px;
+  }
+
+  #printButton {
+    display: none;
+  }
+}

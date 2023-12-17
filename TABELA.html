@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tabela de Camareiras</title>
+    <link rel="stylesheet" href="tabela.css">
+    <link rel="stylesheet" href="menu.css"> 
+</head>
+<body>
+
+  <div id="myMenu" class="menu-container">
+    <a href="javascript:void(0)" class="close-btn" onclick="closeMenu()">&times;</a>
+    <a href="CAMAREIRA.html">Plano das Camareiras</a>
+    <a href="#"> </a>
+    <a href="#"> </a>
+    <!-- Adicionar mais itens conforme necessário -->
+</div>
+
+<div class="menu-btn" onclick="openMenu()">&#9776;</div>
+
+    <h1>Tabela de Camareiras</h1>
+
+    <table border="1">
+        <!-- Conteúdo da tabela -->
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Nome</th>
+            <th>Função</th>
+            <th>Ala Atendida</th>
+            <th>Ações</th>
+          </tr>
+        </thead>
+        <tbody id="camareirasTableBody">
+          <!-- Os dados da tabela serão inseridos aqui dinamicamente -->
+        </tbody>
+    </table>
+    <script src="CAMAREIRA.js"></script>
+
+    <script>
+      function openMenu() {
+          document.getElementById("myMenu").style.width = "250px";
+      }
+  
+      function closeMenu() {
+          document.getElementById("myMenu").style.width = "0";
+      }
+    
+  </script>
+
+</body>
+</html>
